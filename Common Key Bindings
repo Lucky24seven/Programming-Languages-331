@@ -1,0 +1,27 @@
+
+Emacs Common Key Bindings
+Operation 	Command
+ 
+General 	
+Quit Emacs	Ctrl-x Ctrl-c
+Cancel an operation 	Ctrl-g
+Undo 	Ctrl-Shift-dash (-)
+Menu (from putty) 	F10
+ 
+File
+Open 	Ctrl-x Ctrl-f    
+Save 	Ctrl-x Ctrl-s
+Close (kill a buffer)	Ctrl-x k
+Switch to file (buffer)     	Ctrl-x b
+ 
+Edit 	
+Select 	Ctrl-space
+Copy 	Alt-w
+Cut 	Ctrl-w
+Paste 	Ctrl-y
+Indent 	tab
+Go to line 	Alt-g g
+Find (and again)	Ctrl-s
+Replace 	Alt-Shift-%
+
+This is only a short list of the most common key bindings that would be good to remember. A more complete reference can be found at http://www.emacswiki.org/emacs/Reference_Sheet_by_Aaron_Hawley 
