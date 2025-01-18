@@ -1,0 +1,52 @@
+
+Introduction to Lisp
+
+Lisp - A Brief Introduction
+
+    Lisp - LISt Processing.
+    Invented in 1958 by J. McCarthy.
+    Declarative, functional, interpreted.
+    Based on the idea of using the same data structure - the list - both for the code and for the data.
+    A good platform for AI, in particular for natural language processing (NLP) and expert systems.
+    Traditional output for genetic programming is in Lisp. 
+
+Features of Lisp
+
+    First language to implement functions as data types, recursion, garbage collection.
+    First language to be interpreted.
+    Introduced the idea of building the whole language on itself starting from some basic code.
+    Introduced the symbolic type and makes the symbolic computation easier. 
+
+Forms of Lisp
+
+    Dialects: MacLisp(MIT, ~70s), Interlisp (~66, Teitelman), Conversational Lisp (70s), PSL (Portable Standard Lisp, late 70s), Franz Lisp (Foderaro, 82), Scheme (Sussman, Steele, 75).
+    Lisp machines: first proposal: Deutsch 73, MIT machines: 74-78 (CONS, CADR), Xerox: 73-80.
+    Most popular dialect: Common Lisp, started in 1981, officially released in 84. The ANSI standard was adopted in 1986.
+    An object-oriented version: Common Lisp Object System. 
+
+Elisp
+
+    Emacs Lisp.
+    http://www.gnu.org/software/emacs/elisp-manual/html_mono/elisp.html
+    Based on MacLisp and Common Lisp.
+    The emacs editor was written with Elisp. 
+
+Lisp Program
+
+    Lisp doesn't make a distinction between expressions and statements.
+    Everything is an expression in Lisp.
+    Every expression can be evaluated to a value and can have side effects.
+    Executing a piece of code means evaluating all of the expressions it contains.
+    A program is usually a tree of expressions. Expressions can be nested. 
+
+Lists
+
+    General form: (expr expr expr ...)
+    Symbolic lists (or data lists): starting with a single quote, are interpreted as themselves:
+    '(monday tuesday wednesday thursday friday saturday sunday)
+    '(1 2 3 4)
+    For any other list, the first symbol is a function to be invoked, or an operand. The remainder of the list is composed of parameters:
+    (+ 1 2 3 4)
+    (min 4 3 2 1)
+    Any valid expression can be an element of a list.
+    Empty list: '(). Equivalent to nil or false. 
