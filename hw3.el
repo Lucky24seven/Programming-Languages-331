@@ -5,44 +5,42 @@
 
 ; is-const function
 
-(defun is-const (list) element
- (let ((is-const t)) ; variable set to true
- (dolist (element list is-const) ; iterating list
- (if (not (equal element (car list))) ; comparing to first element of list
- (setq is-const nil))) ; setting to false if not equal
- is-const))
+(defun is-const (list)
+  (let ((is-const t)) ; variable set to true
+    (dolist (element list is-const) ; iterating list
+      (if (not (equal element (car list))) ; comparing to first element of list
+	  (setq is-const nil))) ; setting to false if not equal
+    is-const))
 is-const
- ; return statment
 
 ; element-i function
 
 (defun element-i (list index)
- (if (or (< index 0) nil ; checking for empty list
- (dotimes (i index list) ; loops to the index
- (if (nil list)) nil ; returns nil if list is empty
- (pop list) car list))))
+  (cond
+   ((null list) nil) ; if this list is empty, return nil
+   ((= index 0) (car list)) ; if the element is the first return first element
+   (t (element-i (cdr list) (- index 1))))) ; recursively call element-i to desired index
 element-i
- ; returns first element of list
+
 
 ; is-sorted function
 
 (defun is-sorted (list)
- (let ((previous nil)) ; nothing before the first element
- (dolist (current list t) ; iterating list
- (if (and previous (not (<= previous current))) ; checking equality
- nil)
- (setq previous current)) ; updating previous with current element
- t))
+ (let ((sorted t) ; initilzing sorted to be true at start.
+       (current (car list))) ; setting current to first element in the list
+   (dolist (next (cdr list) sorted) ; Setting next element in list to next and using sorted
+     (if (not (<= current next)) ; if current is greather than next...
+	 (setq sorted nil)) ; set sorted to nil
+     (setq current next)))) ; traversing list
 is-sorted
- ; sorted list in ascending order returning t
+
 
 ; reverse function
 
 (defun reverse (list)
- (if (nil list) nil ; base case if the list is empty.
- (append (reverse (cdr list)) (list (car list)))))
+  (if (not list) nil ; base case if the list is empty.
+    (append (reverse (cdr list)) (list (car list))))) ; reversing recursively
 reverse
- ; reversing recursively
 
 
 ; testing functions
@@ -63,8 +61,13 @@ t
 ; element-i
 
 (element-i '(1 2) 4)
-; need to debug
+nil
 
+(element-i '(a b c d e) 4)
+e
+
+(element-i '(3 1 2 6) 0)
+3
 
 ; is-sorted
 
@@ -78,7 +81,7 @@ t
 t
 
 (is-sorted '(4 3 2 1))
-t ; should return nil
+nil
 
 (is-sorted '(2 5 9 12 14))
 t
@@ -86,10 +89,10 @@ t
 ; reverse
 
 (reverse '())
-; debug empty list
+nil
 
 (reverse '(2))
-; debug
+(2)
 
 (reverse '(1 2 3))
-; debug
+(3 2 1)
