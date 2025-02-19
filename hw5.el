@@ -28,14 +28,22 @@ replace
   (mapc (lambda (x) (princ x) (princ " ")) list)) ; printing x followed by a space
 print-list
 
-; make- multiples function
+; make- multiples function  Will be using a reverse helper function
 
 (defun make-multiples (n m)
   (let (product) ; initilizing local variables
     (dotimes (i m product)
       (push (* (1+ i) n) product)) ; making a list of sqaures iterated by 1 each time
-    (reverse product))) ; using reverse function since list is backwards
+    (reverse product))) ; using reverse helper function since list is backwards
 make-multiples
+
+; reverse helper function
+
+(defun reverse (list)
+  (if (not list) nil
+    (append (reverse (cdr list)) (list (car list)))))
+reverse
+
 
 ; is-multiple function
 
@@ -77,7 +85,7 @@ is-multiple
 (is-multiple '(3 6 9 12))
 t
 
-(is-multiple '(3 5 9 12))
+(is-multiple '(2 3 5 7))
 nil
 
 (is-multiple (make-multiples 3 4))
